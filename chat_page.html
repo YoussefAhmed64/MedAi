@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedAI - Medical Chatbot</title>
+    <link rel="stylesheet" href="chat_page.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <a href="home.html" class="home-btn">
+            <i class="fas fa-home"></i>
+        </a>
+        <h1>MedAI - Medical Chatbot</h1>
+    </header>
+    <div class="container">
+        <div class="chat-container">
+            <div class="messages">
+                <div class="message bot-message">
+                    🩺 Hello! Would you like to: <br>1. Chat about symptoms (text) <br>2. Upload an image for analysis
+                </div>
+            </div>
+            <div class="model-selection" style="display: none;">
+                <select id="model-select" class="model-combo">
+                    <option value="">Select a model...</option>
+                </select>
+            </div>
+            <div class="input-container">
+                <input type="text" placeholder="Type 1 or 2..." id="chat-input">
+                <button id="send-button">Send</button>
+            </div>
+        </div>
+    </div>
+    <script src="chat_page.js"></script>
+</body>
+</html>

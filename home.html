@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedAI - Home</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>MedAI</h1>
+            <nav>
+                <a href="chat_page.html" class="nav-link">Chatbot</a>
+                <a href="previous_diagnosis.html" class="nav-link">Previous Diagnosis</a>
+                <button id="logoutBtn" class="logout-btn">Logout</button>
+            </nav>
+        </header>
+
+        <div class="slideshow-container">
+            <div class="slides">
+                <div class="slide">
+                    <div class="service-card">
+                        <img src="https://img.icons8.com/color/96/000000/skin.png" alt="Skin Disease">
+                        <h2>Skin Disease Diagnosis</h2>
+                        <p>Advanced AI-powered analysis of skin conditions using state-of-the-art CNN models</p>
+                        <a href="chat_page.html" class="service-btn">Start Diagnosis</a>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="service-card">
+                        <img src="https://img.icons8.com/color/96/000000/brain.png" alt="Brain Tumor">
+                        <h2>Brain Tumor Analysis</h2>
+                        <p>Precise detection and classification of brain tumors using VGG16 and custom CNN models</p>
+                        <a href="chat_page.html" class="service-btn">Start Analysis</a>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="service-card">
+                        <img src="https://img.icons8.com/color/96/000000/mental-health.png" alt="Mental Health">
+                        <h2>Mental Health Support</h2>
+                        <p>AI-powered symptom analysis and preliminary mental health assessment</p>
+                        <a href="chat_page.html" class="service-btn">Get Support</a>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="service-card">
+                        <img src="img.png" alt="Chest X-ray" class="xray-img">
+                        <h2>Chest X-ray Analysis</h2>
+                        <p>Advanced AI-powered analysis of chest X-rays using state-of-the-art CNN models</p>
+                        <a href="chat_page.html" class="service-btn">Start Analysis</a>
+                    </div>
+                </div>
+            </div>
+            <button class="slide-btn prev">❮</button>
+            <button class="slide-btn next">❯</button>
+        </div>
+    </div>
+    <script src="home.js"></script>
+</body>
+</html> 

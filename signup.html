@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedAI - Sign Up</title>
+    <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+    <header>
+        <a href="home.html" class="logo">MedAI</a>
+        <span class="header-title">Sign Up</span>
+        <nav class="header-nav">
+            <a href="login.html" class="nav-link">Login</a>
+            <a href="signup.html" class="nav-link signup active">Sign Up</a>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="signup-form">
+            <h1>Create Account</h1>
+            <p>Join MedAI to get started</p>
+            <form id="signupForm">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required>
+                </div>
+                <div id="error-message" class="error-message"></div>
+                <button type="submit" class="submit-btn">Sign Up</button>
+            </form>
+            <p class="login-link">Already have an account? <a href="login.html">Login</a></p>
+        </div>
+    </div>
+    <script src="auth.js"></script>
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const errorMessage = document.getElementById('error-message');
+            
+            // Validate passwords match
+            if (password !== confirmPassword) {
+                errorMessage.textContent = 'Passwords do not match';
+                return;
+            }
+            
+            // Attempt to add user
+            const result = addUser(name, email, password);
+            
+            if (result.success) {
+                // Store user data in session storage
+                sessionStorage.setItem('currentUser', JSON.stringify({
+                    name: name,
+                    email: email
+                }));
+                // Redirect to home page
+                window.location.href = 'home.html';
+            } else {
+                errorMessage.textContent = result.message;
+            }
+        });
+    </script>
+</body>
+</html> 

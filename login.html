@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedAI - Login</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <header>
+        <a href="home.html" class="logo">MedAI</a>
+        <span class="header-title">Login</span>
+        <nav class="header-nav">
+            <a href="login.html" class="nav-link active">Login</a>
+            <a href="signup.html" class="nav-link signup">Sign Up</a>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="login-form">
+            <h1>Welcome Back</h1>
+            <p>Please login to continue</p>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div id="error-message" class="error-message"></div>
+                <button type="submit" class="submit-btn">Login</button>
+            </form>
+            <p class="signup-link">Don't have an account? <a href="signup.html">Sign up</a></p>
+        </div>
+    </div>
+    <script src="auth.js"></script>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('error-message');
+            
+            // Attempt to validate login
+            const result = validateLogin(email, password);
+            
+            if (result.success) {
+                // Store user data in session storage
+                sessionStorage.setItem('currentUser', JSON.stringify(result.userData));
+                // Redirect to home page
+                window.location.href = 'home.html';
+            } else {
+                errorMessage.textContent = result.message;
+            }
+        });
+    </script>
+</body>
+</html> 

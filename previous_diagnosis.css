@@ -1,0 +1,223 @@
+:root {
+    --primary-bg: #2D2A2E;
+    --secondary-bg: #3E3B40;
+    --primary-text: #FCFCFA;
+    --accent-yellow: #E6DB74;
+    --border-color: #5B595C;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background-color: var(--primary-bg);
+    color: var(--primary-text);
+    min-height: 100vh;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--secondary-bg);
+    color: var(--accent-yellow);
+    text-align: center;
+    padding: 0.8rem;
+    font-size: 1.2rem;
+    border-bottom: 1px solid var(--border-color);
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    height: 40px;
+    backdrop-filter: blur(10px);
+}
+
+.container {
+    margin-top: 65px;
+    min-height: calc(100vh - 40px);
+    padding: 2rem;
+    overflow-y: auto;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.diagnosis-list {
+    max-width: 800px;
+    margin: 0 auto;
+    animation: slideUp 0.5s ease-out;
+}
+
+.diagnosis-list h1 {
+    color: var(--accent-yellow);
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.2rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.diagnosis-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.diagnosis-card {
+    background-color: var(--secondary-bg);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.diagnosis-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.diagnosis-header {
+    background-color: var(--primary-bg);
+    padding: 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.3s ease;
+}
+
+.diagnosis-card:hover .diagnosis-header {
+    background-color: rgba(45, 42, 46, 0.9);
+}
+
+.date {
+    color: var(--accent-yellow);
+    font-weight: 500;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.date::before {
+    content: '📅';
+    font-size: 1rem;
+}
+
+.type {
+    background-color: var(--secondary-bg);
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+.diagnosis-card:hover .type {
+    background-color: var(--accent-yellow);
+    color: var(--primary-bg);
+}
+
+.diagnosis-content {
+    padding: 1.8rem;
+    transition: background-color 0.3s ease;
+}
+
+.diagnosis-content h3 {
+    color: var(--accent-yellow);
+    margin-bottom: 0.8rem;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.diagnosis-content h3:first-of-type::before {
+    content: '🔍';
+}
+
+.diagnosis-content h3:last-of-type::before {
+    content: '📋';
+}
+
+.diagnosis-content p {
+    margin-bottom: 1.2rem;
+    line-height: 1.6;
+    color: var(--primary-text);
+    opacity: 0.9;
+}
+
+.diagnosis-content h3:last-of-type {
+    margin-top: 1.5rem;
+}
+
+.back-btn {
+    display: inline-block;
+    padding: 0.9rem 2rem;
+    background-color: var(--secondary-bg);
+    color: var(--primary-text);
+    text-decoration: none;
+    border-radius: 25px;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+    margin-top: 1.5rem;
+    font-weight: 500;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.back-btn:hover {
+    background-color: var(--accent-yellow);
+    color: var(--primary-bg);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    .diagnosis-header {
+        flex-direction: column;
+        gap: 0.8rem;
+        align-items: flex-start;
+        padding: 1rem;
+    }
+    
+    .diagnosis-content {
+        padding: 1.2rem;
+    }
+
+    .diagnosis-list h1 {
+        font-size: 1.8rem;
+    }
+
+    .back-btn {
+        width: 100%;
+        text-align: center;
+    }
+} 
